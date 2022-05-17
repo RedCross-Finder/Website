@@ -11,4 +11,4 @@ class CreateUserForm(UserCreationForm):
     birthdate = forms.DateField(widget=forms.SelectDateWidget(years=range(1900, int(currentYear))), required=True)
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'birthdate', 'password1', 'password2']
+        fields = ['username', 'first_name', 'last_name', 'birthdate', 'password1', 'password2']

@@ -15,9 +15,31 @@
 
     <form method="POST" action="">
         {% csrf_token %}
-        {{form.as_p}}
+        <div class="registration-form">
+            <div class="un-label input-label">{{form.username.label}}</div>
+            <div class="un-label input-text">{{form.username}}</div>
+            <div class="fn-label input-label">{{form.first_name.label}}</div>
+            <div class="fn-input input-text">{{form.first_name}}</div>
+            <div class="ln-label input-label">{{form.last_name.label}}</div>
+            <div class="ln-input input-text">{{form.last_name}}</div>
+            <div class="bd-label input-label">{{form.birthdate.label}}</div>
+            <div class="bd-input input-date">{{form.birthdate}}</div>
+            <div class="pw1-label input-label">{{form.password1.label}}</div>
+            <div class="pw1-input input-text">{{form.password1}}</div>
+            <div class="pw2-label input-label">{{form.password2.label}}</div>
+            <div class="pw2-input input-text">{{form.password2}}</div>
+        </div>
         <input type="submit" name="Create User">
     </form>
+
+    <script>
+        var form_fields = document.getElementsByTagName('Input')
+        form_fields[1].placeholder = "Username"
+        form_fields[2].placeholder = "First name"
+        form_fields[3].placeholder = "Last name"
+        form_fields[4].placeholder = "Password"
+        form_fields[5].placeholder = "Repeat password"
+    </script>
 </body>
 </html>
 

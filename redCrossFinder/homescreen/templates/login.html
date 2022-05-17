@@ -1,1 +1,35 @@
-<h1>Login</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="icon" type="image/svg+xml" href="{% static 'favicon/favicon.svg' %}">
+    <link rel="icon" type="image/png" href="{% static 'favicon/favicon.png' %}">
+    <title>Login</title>
+</head>
+<body>
+    <h2>Login</h2>
+
+    <form method="POST" action="">
+        {% csrf_token %}
+        <div class="registration-form">
+            <div class="un-label input-label"><label for="username"> Login</label></div>
+            <div class="un-label input-text"><input type="text" name="username" placeholder="Username"></div>
+            <div class="pw-label input-label"><label for="password">Password</label></div>
+            <div class="pw-input input-text"><input type="text" name="password" placeholder="Password"></div>
+        </div>
+        
+        {% for message in messages %}
+            <p class="messages">{{message}}</p>
+        {% endfor %}
+
+        <div class="change-page">
+            <p>Don't haven an account yet? <a href="{% url 'register' %}">Create one.</a></p>
+        </div>
+        <input type="submit" name="Login">
+    </form>
+</body>
+</html>
